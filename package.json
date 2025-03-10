@@ -1,0 +1,98 @@
+{
+  "name": "skyreve-api-tester",
+  "publisher": "skyreve",
+  "displayName": "skyreve-api-tester",
+  "description": "awesome api tester",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.svg",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "apiTesterContainer",
+          "title": "Reve API Tester",
+          "icon": "icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "apiTesterContainer": [
+        {
+          "id": "requestTreeView",
+          "name": "API List",
+          "icon": "$(list-tree)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "skyreve-api-test.syncApis",
+        "title": "sync",
+        "category": "API Tester",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "skyreve-api-test.openRequest",
+        "title": "API 상세 보기",
+        "category": "API Tester"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "skyreve-api-test.syncApis",
+          "when": "view == requestTreeView",
+          "group": "navigation",
+          "icon": "$(sync)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "build": "webpack-cli",
+    "watch": "webpack-cli --watch"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.24.2",
+    "eslint": "^9.19.0",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
