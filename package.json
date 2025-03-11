@@ -1,16 +1,19 @@
 {
-  "name": "skyreve-api-tester",
-  "publisher": "skyreve",
-  "displayName": "skyreve-api-tester",
-  "description": "awesome api tester",
-  "version": "0.0.1",
+  "name": "reve-api-tester",
+  "publisher": "SkyReve",
+  "displayName": "Reve API Tester",
+  "description": "SkyReve Project API Tester",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.97.0"
   },
   "categories": [
     "Other"
   ],
-  "icon": "icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SkyReve/reve-api-tester"
+  },
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
@@ -35,13 +38,13 @@
     "commands": [
       {
         "command": "skyreve-api-test.syncApis",
-        "title": "sync",
+        "title": "sync Api",
         "category": "API Tester",
         "icon": "$(sync)"
       },
       {
         "command": "skyreve-api-test.openRequest",
-        "title": "API 상세 보기",
+        "title": "Api Detail",
         "category": "API Tester"
       }
     ],
@@ -69,30 +72,30 @@
     "lint": "eslint src",
     "test": "vscode-test",
     "build": "webpack-cli",
-    "watch": "webpack-cli --watch"
+    "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
     "@types/vscode": "^1.97.0",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "esbuild": "^0.24.2",
-    "eslint": "^9.19.0",
+    "eslint": "^8.57.0",
     "npm-run-all": "^4.1.5",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.8.2",
+    "typescript": "5.3.3",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
     "axios": "^1.7.9",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
