@@ -4,6 +4,7 @@ import { RequestType } from "../types/types";
 import { ApiTreeDataProvider } from "../apiTreeDataProvider";
 import { webViewHtml } from "../webview/viewViewHtml";
 import { getCurrentPanel } from "../extension";
+import { saveRequestList } from "../utils/storage";
 // 전역 변수에 webview panel 추가
 let currentPanel: vscode.WebviewPanel | undefined;
 
@@ -19,6 +20,7 @@ export const syncApisCommand = async (
   // TODO: globalState에 저장된 목록 불러오와서 유저가 입력한 Values 복구
   // requestList = loadRequestList(context);
   // await saveRequestList(context, requestList);
+  await saveRequestList(context, scannedRequests);
 
   // 패널이 켜져있으면 새로고침
   const panel = getCurrentPanel();
